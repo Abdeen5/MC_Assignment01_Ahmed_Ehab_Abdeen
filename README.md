@@ -1,21 +1,18 @@
 # Mobile Computing - Assignment 01 (To-Do List)
 
 **Name:** Ahmed Ehab Abdeen  
-**Course:** Mobile Computing (Spring 2026)
+**Course:** Mobile Computing  
 
 ## Project Description
-A simple To-Do List app built with React Native (Expo).  
-Users can add goals using TextInput and display them using FlatList.
+A To-Do List application built using React Native and Expo.
 
-## Features
-- Add new goal
-- Display goals in a scrollable list (FlatList)
-- Delete goal with confirmation
+Users can:
+- Add new goals
+- Display goals using FlatList
+- Delete goals with confirmation
 
 ## Expo Snack
-PASTE_YOUR_SNACK_LINK_HERE
+https://snack.expo.dev/@abdeen05/to-do-list
 
-## How to Run
-```bash
-npm install
-npx expo start
+## GitHub Repository
+https://github.com/Abdeen5/MC_Assignment01_Ahmed_Ehab_Abdeen
