@@ -26,9 +26,9 @@ The app demonstrates the use of React Native core components and state managemen
 
 | Lab / Assignment | Project Name | Preview | Key Technologies & Features | Live Expo Snack | Status |
 |---|---|---:|---|---:|---:|
-| Assignment 01 | To-Do List App | <img src="assets/assignment01-preview.png" width="220" /> | React Native, Expo, `useState`, `FlatList`, Add/Delete (Confirm), Dark Theme | [View on Snack](https://snack.expo.dev/@abdeen05/to-do-list) | ✅Complete |
-| Assignment 02 | Upcoming | ⏳ | To be determined | - | ⏳Pending |
-| Assignment 03 | Upcoming | ⏳ | To be determined | - | ⏳Pending |
+| Assignment 01 | To-Do List App | <img src="assets/assignment01-preview.png" width="220" /> | React Native, Expo, `useState`, `FlatList`, Add/Delete (Confirm), Dark Theme | [View on Snack](https://snack.expo.dev/@abdeen05/to-do-list) | ✅  Complete |
+| Assignment 02 | Upcoming | ⏳ | To be determined | - | ⏳  Pending |
+| Assignment 03 | Upcoming | ⏳ | To be determined | - | ⏳  Pending |
 
 ---
 
