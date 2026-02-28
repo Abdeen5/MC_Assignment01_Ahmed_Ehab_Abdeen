@@ -137,7 +137,11 @@ import {
   Platform,
 } from "react-native";
 
-import { useFonts, Poppins_400Regular, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_600SemiBold,
+} from "@expo-google-fonts/poppins";
 
 type Goal = {
   id: string;
@@ -155,7 +159,7 @@ export default function HomeScreen() {
 
   function addGoalHandler() {
     const text = enteredGoal.trim();
-    if (text.length === 0) return;
+    if (!text) return;
 
     setGoals((current) => [...current, { id: Math.random().toString(), text }]);
     setEnteredGoal("");
@@ -166,21 +170,27 @@ export default function HomeScreen() {
   }
 
   function confirmDelete(id: string, text: string) {
-    // Web confirm
+    // ✅ Web confirm
     if (Platform.OS === "web") {
-      const ok = window.confirm(`Delete Goal?\n\nAre you sure you want to delete "${text}"?`);
+      const ok = window.confirm(
+        `Delete Goal?\n\nAre you sure you want to delete "${text}"?`
+      );
       if (ok) deleteGoalHandler(id);
       return;
     }
 
-    // Mobile confirm
+    // ✅ Mobile confirm
     Alert.alert("Delete Goal", `Are you sure you want to delete "${text}"?`, [
       { text: "Cancel", style: "cancel" },
-      { text: "Delete", style: "destructive", onPress: () => deleteGoalHandler(id) },
+      {
+        text: "Delete",
+        style: "destructive",
+        onPress: () => deleteGoalHandler(id),
+      },
     ]);
   }
 
-  // Wait for fonts to load (important)
+  // Wait for fonts to load
   if (!fontsLoaded) return null;
 
   return (
@@ -190,11 +200,12 @@ export default function HomeScreen() {
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Enter goal"
-          placeholderTextColor="#7A6A97"
+          placeholderTextColor="#9CA3AF"
           style={styles.textInput}
           value={enteredGoal}
           onChangeText={setEnteredGoal}
         />
+
         <Pressable style={styles.addBtn} onPress={addGoalHandler}>
           <Text style={styles.addBtnText}>ADD</Text>
         </Pressable>
@@ -204,9 +215,12 @@ export default function HomeScreen() {
         data={goals}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <Pressable onPress={() => confirmDelete(item.id, item.text)} style={styles.goalItem}>
+          <Pressable
+            onPress={() => confirmDelete(item.id, item.text)}
+            style={styles.goalItem}
+          >
             <Text style={styles.goalText}>{item.text}</Text>
-            <Text style={styles.hintText}>Click to delete (confirm)</Text>
+            <Text style={styles.hintText}>Click to delete</Text>
           </Pressable>
         )}
       />
@@ -219,54 +233,62 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 30,
     paddingTop: 60,
-    backgroundColor: "#F5F3FF",
+    backgroundColor: "#0F172A", // Dark navy
   },
+
   title: {
     fontSize: 28,
     fontFamily: "Poppins_600SemiBold",
-    color: "#6A0DAD",
+    color: "#60A5FA", // Light blue
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 25,
   },
+
   inputContainer: {
     flexDirection: "row",
     marginBottom: 20,
     gap: 10,
   },
+
   textInput: {
     flex: 1,
     borderWidth: 1,
-    borderColor: "#6A0DAD",
-    padding: 10,
+    borderColor: "#1E3A8A",
+    padding: 12,
     borderRadius: 10,
     fontFamily: "Poppins_400Regular",
-    color: "#1F1B24",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#1E293B", // dark card
+    color: "white",
   },
+
   addBtn: {
-    backgroundColor: "#6A0DAD",
-    paddingHorizontal: 14,
-    paddingVertical: 10,
+    backgroundColor: "#2563EB", // blue button
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderRadius: 10,
     justifyContent: "center",
   },
+
   addBtnText: {
     color: "white",
     fontFamily: "Poppins_600SemiBold",
   },
+
   goalItem: {
-    backgroundColor: "#6A0DAD",
+    backgroundColor: "#1E40AF", // deep blue
     padding: 15,
     borderRadius: 12,
     marginVertical: 6,
   },
+
   goalText: {
     color: "white",
     fontFamily: "Poppins_600SemiBold",
     fontSize: 14,
   },
+
   hintText: {
-    color: "#EAD9FF",
+    color: "#BFDBFE",
     fontFamily: "Poppins_400Regular",
     fontSize: 11,
     marginTop: 6,
